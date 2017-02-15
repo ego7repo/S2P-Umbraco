@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout              = "Master.cshtml";
+    var content         = Model.Content;
+    var jumboBgColor    = content.HasValue("headerBgColor") ? "style='background-color:" + content["headerBgColor"] + ";'" : "";
+}
+
+
+<div class="jumbotron" @jumboBgColor>
+    <div class="container">
+        <div class="content" data-aos="fade-right" data-aos-once="true" data-aos-easing="ease-in-out">
+            @content["pageHeader"]
+        </div>
+    </div>
+</div>
+
+@Html.Partial("Partials/Modules")

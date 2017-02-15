@@ -1,0 +1,30 @@
+﻿@using Umbraco.Core
+@using Umbraco.Web
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var homePage = Model.Content.AncestorOrSelf(1);
+} 
+<title>
+
+@{
+     @*
+    if (Model.Content.HasValue("pageTitle"))
+    {
+        // A specific page title is present
+        @Model.Content.GetPropertyValue("pageTitle")
+    }
+    *@
+
+if (Model.Content.Id == homePage.Id)
+{
+    // Homepage
+        @(Model.Content.GetPropertyValue("siteName") + " - " + Model.Content.GetPropertyValue("siteDescription"))
+    }
+    else
+    {
+        // General page
+        @(Model.Content.Name + " | " + homePage.GetPropertyValue("siteName"))
+    }
+}
+
+</title>

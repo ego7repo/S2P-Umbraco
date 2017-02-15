@@ -1,0 +1,663 @@
+﻿ 2017-02-15 00:51:04,442 [P12676/D2/T24] INFO  umbraco.BusinessLogic.Log - Log scrubbed.  Removed all items older than 2017-02-14 00:51:04
+ 2017-02-15 04:51:04,264 [P12676/D2/T232] INFO  umbraco.BusinessLogic.Log - Log scrubbed.  Removed all items older than 2017-02-14 04:51:04
+ 2017-02-15 08:51:04,231 [P12676/D2/T16] INFO  umbraco.BusinessLogic.Log - Log scrubbed.  Removed all items older than 2017-02-14 08:51:04
+ 2017-02-15 09:38:12,979 [P12676/D2/T22] ERROR Umbraco.Core.UmbracoApplicationBase - An unhandled exception occurred
+System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.<>c__DisplayClass1.<ExecuteAction>b__0()
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.ExecuteAction[TResult](Func`1 func)
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.ExecuteAction(Action action)
+   at Umbraco.Core.Persistence.PetaPocoConnectionExtensions.OpenWithRetry(IDbConnection connection, RetryPolicy retryPolicy)
+   at Umbraco.Core.Persistence.PetaPocoConnectionExtensions.OpenWithRetry(IDbConnection connection)
+   at Umbraco.Core.Persistence.Database.OpenSharedConnection()
+   at Umbraco.Core.Persistence.Database.<Query>d__7`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Umbraco.Core.Persistence.Database.Fetch[T](String sql, Object[] args)
+   at Umbraco.Core.Persistence.Database.Fetch[T](Sql sql)
+   at Umbraco.Core.Sync.DatabaseServerMessenger.ProcessDatabaseInstructions()
+   at Umbraco.Core.Sync.DatabaseServerMessenger.Sync()
+   at Umbraco.Web.BatchedDatabaseServerMessenger.UmbracoModule_RouteAttempt(Object sender, RoutableAttemptEventArgs e)
+   at Umbraco.Web.UmbracoModule.OnRouteAttempt(RoutableAttemptEventArgs args)
+   at Umbraco.Web.UmbracoModule.ProcessRequest(HttpContextBase httpContext)
+   at Umbraco.Web.UmbracoModule.<Init>b__8(Object sender, EventArgs e)
+   at System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+ 2017-02-15 09:38:12,979 [P12676/D2/T169] ERROR Umbraco.Web.Strategies.ServerRegistrationEventHandler - Failed to update server record in database.
+System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.<>c__DisplayClass1.<ExecuteAction>b__0()
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.ExecuteAction[TResult](Func`1 func)
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.ExecuteAction(Action action)
+   at Umbraco.Core.Persistence.PetaPocoConnectionExtensions.OpenWithRetry(IDbConnection connection, RetryPolicy retryPolicy)
+   at Umbraco.Core.Persistence.PetaPocoConnectionExtensions.OpenWithRetry(IDbConnection connection)
+   at Umbraco.Core.Persistence.Database.OpenSharedConnection()
+   at Umbraco.Core.Persistence.Database.BeginTransaction(IsolationLevel isolationLevel)
+   at Umbraco.Core.Persistence.LockingRepository`1.WithWriteLocked(Action`1 action, Boolean autoCommit)
+   at Umbraco.Core.Services.ServerRegistrationService.TouchServer(String serverAddress, String serverIdentity, TimeSpan staleTimeout)
+   at Umbraco.Web.Strategies.ServerRegistrationEventHandler.TouchServerTask.PerformRun()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+ 2017-02-15 09:38:54,111 [P12676/D2/T175] ERROR Umbraco.Core.UmbracoApplicationBase - An unhandled exception occurred
+System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.<>c__DisplayClass1.<ExecuteAction>b__0()
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.ExecuteAction[TResult](Func`1 func)
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.ExecuteAction(Action action)
+   at Umbraco.Core.Persistence.PetaPocoConnectionExtensions.OpenWithRetry(IDbConnection connection, RetryPolicy retryPolicy)
+   at Umbraco.Core.Persistence.PetaPocoConnectionExtensions.OpenWithRetry(IDbConnection connection)
+   at Umbraco.Core.Persistence.Database.OpenSharedConnection()
+   at Umbraco.Core.Persistence.Database.<Query>d__7`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Umbraco.Core.Persistence.Database.Fetch[T](String sql, Object[] args)
+   at Umbraco.Core.Persistence.Database.Fetch[T](Sql sql)
+   at Umbraco.Core.Sync.DatabaseServerMessenger.ProcessDatabaseInstructions()
+   at Umbraco.Core.Sync.DatabaseServerMessenger.Sync()
+   at Umbraco.Web.BatchedDatabaseServerMessenger.UmbracoModule_RouteAttempt(Object sender, RoutableAttemptEventArgs e)
+   at Umbraco.Web.UmbracoModule.OnRouteAttempt(RoutableAttemptEventArgs args)
+   at Umbraco.Web.UmbracoModule.ProcessRequest(HttpContextBase httpContext)
+   at Umbraco.Web.UmbracoModule.<Init>b__8(Object sender, EventArgs e)
+   at System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+ 2017-02-15 09:39:27,136 [P12676/D2/T179] ERROR Umbraco.Core.UmbracoApplicationBase - An unhandled exception occurred
+System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.<>c__DisplayClass1.<ExecuteAction>b__0()
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.ExecuteAction[TResult](Func`1 func)
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.ExecuteAction(Action action)
+   at Umbraco.Core.Persistence.PetaPocoConnectionExtensions.OpenWithRetry(IDbConnection connection, RetryPolicy retryPolicy)
+   at Umbraco.Core.Persistence.PetaPocoConnectionExtensions.OpenWithRetry(IDbConnection connection)
+   at Umbraco.Core.Persistence.Database.OpenSharedConnection()
+   at Umbraco.Core.Persistence.Database.<Query>d__7`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Umbraco.Core.Persistence.Database.Fetch[T](String sql, Object[] args)
+   at Umbraco.Core.Persistence.Database.Fetch[T](Sql sql)
+   at Umbraco.Core.Sync.DatabaseServerMessenger.ProcessDatabaseInstructions()
+   at Umbraco.Core.Sync.DatabaseServerMessenger.Sync()
+   at Umbraco.Web.BatchedDatabaseServerMessenger.UmbracoModule_RouteAttempt(Object sender, RoutableAttemptEventArgs e)
+   at Umbraco.Web.UmbracoModule.OnRouteAttempt(RoutableAttemptEventArgs args)
+   at Umbraco.Web.UmbracoModule.ProcessRequest(HttpContextBase httpContext)
+   at Umbraco.Web.UmbracoModule.<Init>b__8(Object sender, EventArgs e)
+   at System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+ 2017-02-15 09:40:41,694 [P12676/D2/T169] ERROR Umbraco.Core.UmbracoApplicationBase - An unhandled exception occurred
+System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.<>c__DisplayClass1.<ExecuteAction>b__0()
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.ExecuteAction[TResult](Func`1 func)
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.ExecuteAction(Action action)
+   at Umbraco.Core.Persistence.PetaPocoConnectionExtensions.OpenWithRetry(IDbConnection connection, RetryPolicy retryPolicy)
+   at Umbraco.Core.Persistence.PetaPocoConnectionExtensions.OpenWithRetry(IDbConnection connection)
+   at Umbraco.Core.Persistence.Database.OpenSharedConnection()
+   at Umbraco.Core.Persistence.Database.<Query>d__7`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Umbraco.Core.Persistence.Database.Fetch[T](String sql, Object[] args)
+   at Umbraco.Core.Persistence.Database.Fetch[T](Sql sql)
+   at Umbraco.Core.Sync.DatabaseServerMessenger.ProcessDatabaseInstructions()
+   at Umbraco.Core.Sync.DatabaseServerMessenger.Sync()
+   at Umbraco.Web.BatchedDatabaseServerMessenger.UmbracoModule_RouteAttempt(Object sender, RoutableAttemptEventArgs e)
+   at Umbraco.Web.UmbracoModule.OnRouteAttempt(RoutableAttemptEventArgs args)
+   at Umbraco.Web.UmbracoModule.ProcessRequest(HttpContextBase httpContext)
+   at Umbraco.Web.UmbracoModule.<Init>b__8(Object sender, EventArgs e)
+   at System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+ 2017-02-15 09:41:24,172 [P12676/D2/T173] ERROR Umbraco.Core.UmbracoApplicationBase - An unhandled exception occurred
+System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.<>c__DisplayClass1.<ExecuteAction>b__0()
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.ExecuteAction[TResult](Func`1 func)
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.ExecuteAction(Action action)
+   at Umbraco.Core.Persistence.PetaPocoConnectionExtensions.OpenWithRetry(IDbConnection connection, RetryPolicy retryPolicy)
+   at Umbraco.Core.Persistence.PetaPocoConnectionExtensions.OpenWithRetry(IDbConnection connection)
+   at Umbraco.Core.Persistence.Database.OpenSharedConnection()
+   at Umbraco.Core.Persistence.Database.<Query>d__7`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Umbraco.Core.Persistence.Database.Fetch[T](String sql, Object[] args)
+   at Umbraco.Core.Persistence.Database.Fetch[T](Sql sql)
+   at Umbraco.Core.Sync.DatabaseServerMessenger.ProcessDatabaseInstructions()
+   at Umbraco.Core.Sync.DatabaseServerMessenger.Sync()
+   at Umbraco.Web.BatchedDatabaseServerMessenger.UmbracoModule_RouteAttempt(Object sender, RoutableAttemptEventArgs e)
+   at Umbraco.Web.UmbracoModule.OnRouteAttempt(RoutableAttemptEventArgs args)
+   at Umbraco.Web.UmbracoModule.ProcessRequest(HttpContextBase httpContext)
+   at Umbraco.Web.UmbracoModule.<Init>b__8(Object sender, EventArgs e)
+   at System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+ 2017-02-15 09:41:56,243 [P12676/D2/T164] ERROR Umbraco.Core.UmbracoApplicationBase - An unhandled exception occurred
+System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.<>c__DisplayClass1.<ExecuteAction>b__0()
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.ExecuteAction[TResult](Func`1 func)
+   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.ExecuteAction(Action action)
+   at Umbraco.Core.Persistence.PetaPocoConnectionExtensions.OpenWithRetry(IDbConnection connection, RetryPolicy retryPolicy)
+   at Umbraco.Core.Persistence.PetaPocoConnectionExtensions.OpenWithRetry(IDbConnection connection)
+   at Umbraco.Core.Persistence.Database.OpenSharedConnection()
+   at Umbraco.Core.Persistence.Database.<Query>d__7`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Umbraco.Core.Persistence.Database.Fetch[T](String sql, Object[] args)
+   at Umbraco.Core.Persistence.Database.Fetch[T](Sql sql)
+   at Umbraco.Core.Sync.DatabaseServerMessenger.ProcessDatabaseInstructions()
+   at Umbraco.Core.Sync.DatabaseServerMessenger.Sync()
+   at Umbraco.Web.BatchedDatabaseServerMessenger.UmbracoModule_RouteAttempt(Object sender, RoutableAttemptEventArgs e)
+   at Umbraco.Web.UmbracoModule.OnRouteAttempt(RoutableAttemptEventArgs args)
+   at Umbraco.Web.UmbracoModule.ProcessRequest(HttpContextBase httpContext)
+   at Umbraco.Web.UmbracoModule.<Init>b__8(Object sender, EventArgs e)
+   at System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+ 2017-02-15 09:45:52,729 [P12676/D2/T148] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: Login attempt succeeded for username ddweil@yahoo.com from IP address ::1
+ 2017-02-15 09:45:52,729 [P12676/D2/T148] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: User: ddweil@yahoo.com logged in from IP address ::1
+ 2017-02-15 09:45:52,767 [P12676/D2/T152] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.Trees.TreeController
+ 2017-02-15 09:45:52,767 [P12676/D2/T152] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.Trees.TreeController, found 0 (took 0ms)
+ 2017-02-15 09:46:19,276 [P12676/D2/T154] WARN  Umbraco.Core.Persistence.Repositories.VersionableRepositoryBase`2[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Umbraco.Core.Models.IContent, Umbraco.Core, Version=1.0.6247.17495, Culture=neutral, PublicKeyToken=null]] - The query returned multiple property sets for document definition 1088, People Page
+ 2017-02-15 09:46:19,276 [P12676/D2/T154] WARN  Umbraco.Core.Persistence.Repositories.VersionableRepositoryBase`2[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Umbraco.Core.Models.IContent, Umbraco.Core, Version=1.0.6247.17495, Culture=neutral, PublicKeyToken=null]] - The query returned multiple property sets for document definition 1088, People Page
+ 2017-02-15 09:46:19,277 [P12676/D2/T154] WARN  Umbraco.Core.Persistence.Repositories.VersionableRepositoryBase`2[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Umbraco.Core.Models.IContent, Umbraco.Core, Version=1.0.6247.17495, Culture=neutral, PublicKeyToken=null]] - The query returned multiple property sets for document definition 1088, People Page
+ 2017-02-15 09:46:19,277 [P12676/D2/T154] WARN  Umbraco.Core.Persistence.Repositories.VersionableRepositoryBase`2[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Umbraco.Core.Models.IContent, Umbraco.Core, Version=1.0.6247.17495, Culture=neutral, PublicKeyToken=null]] - The query returned multiple property sets for document definition 1088, People Page
+ 2017-02-15 09:48:19,743 [P12676/D2/T148] INFO  umbraco.content - Loading content from database...
+ 2017-02-15 09:48:23,849 [P12676/D2/T63] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 09:48:23,853 [P12676/D2/T63] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 09:52:28,075 [P12676/D2/T161] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Mauro Erriquez' with Id '1089' has been published.
+ 2017-02-15 09:52:32,203 [P12676/D2/T167] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 09:52:32,205 [P12676/D2/T167] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 09:52:47,864 [P12676/D2/T130] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Wolfgang Schnellbächer' with Id '1090' has been published.
+ 2017-02-15 09:52:51,937 [P12676/D2/T147] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 09:52:51,938 [P12676/D2/T147] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 09:53:08,368 [P12676/D2/T178] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Teresa Liptak' with Id '1091' has been published.
+ 2017-02-15 09:53:12,440 [P12676/D2/T165] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 09:53:12,446 [P12676/D2/T165] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 09:53:25,069 [P12676/D2/T178] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Ed Woodcock' with Id '1092' has been published.
+ 2017-02-15 09:53:29,125 [P12676/D2/T130] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 09:53:29,129 [P12676/D2/T130] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 09:53:35,000 [P12676/D2/T147] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Antonio De Gregorio' with Id '1093' has been published.
+ 2017-02-15 09:53:39,052 [P12676/D2/T130] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 09:53:39,054 [P12676/D2/T130] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 09:53:47,424 [P12676/D2/T165] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'George Joseph' with Id '1094' has been published.
+ 2017-02-15 09:53:51,484 [P12676/D2/T169] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 09:53:51,486 [P12676/D2/T169] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 09:54:02,955 [P12676/D2/T142] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Christoph Kloos' with Id '1095' has been published.
+ 2017-02-15 09:54:07,021 [P12676/D2/T173] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 09:54:07,027 [P12676/D2/T173] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 09:54:16,461 [P12676/D2/T146] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Giulia Gherardi' with Id '1096' has been published.
+ 2017-02-15 09:54:20,501 [P12676/D2/T151] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 09:54:20,507 [P12676/D2/T151] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 09:55:42,340 [P12676/D2/T136] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 09:55:42,340 [P12676/D2/T136] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 09:55:42,341 [P12676/D2/T136] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 09:55:42,341 [P12676/D2/T136] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 09:56:11,367 [P12676/D2/T178] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [Umbraco.Web.Scheduling.IBackgroundTask] Terminating
+ 2017-02-15 09:56:11,367 [P12676/D2/T178] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [Umbraco.Web.Scheduling.IBackgroundTask] Waiting for tasks to complete
+ 2017-02-15 09:56:11,367 [P12676/D2/T178] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [Umbraco.Web.Scheduling.IBackgroundTask] Tasks completed, terminated
+ 2017-02-15 09:56:11,380 [P12676/D2/T178] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [LogScrubber] Terminating
+ 2017-02-15 09:56:11,380 [P12676/D2/T178] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [LogScrubber] Waiting for tasks to complete
+ 2017-02-15 09:56:11,380 [P12676/D2/T178] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledTasks] Terminating
+ 2017-02-15 09:56:11,380 [P12676/D2/T178] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledTasks] Waiting for tasks to complete
+ 2017-02-15 09:56:11,381 [P12676/D2/T178] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [KeepAlive] Terminating
+ 2017-02-15 09:56:11,381 [P12676/D2/T178] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [KeepAlive] Waiting for tasks to complete
+ 2017-02-15 09:56:11,381 [P12676/D2/T178] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledPublishing] Terminating
+ 2017-02-15 09:56:11,381 [P12676/D2/T178] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledPublishing] Waiting for tasks to complete
+ 2017-02-15 09:56:11,381 [P12676/D2/T16] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [LogScrubber] Tasks completed, terminated
+ 2017-02-15 09:56:11,381 [P12676/D2/T148] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledTasks] Tasks completed, terminated
+ 2017-02-15 09:56:11,381 [P12676/D2/T16] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledPublishing] Tasks completed, terminated
+ 2017-02-15 09:56:11,381 [P12676/D2/T129] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [KeepAlive] Tasks completed, terminated
+ 2017-02-15 09:56:11,382 [P12676/D2/T178] INFO  Umbraco.Core.MainDom - Stopping...
+ 2017-02-15 09:56:11,383 [P12676/D2/T178] INFO  Umbraco.Core.MainDom - Released MainDom.
+ 2017-02-15 09:56:12,706 [P12676/D3/T1] INFO  Umbraco.Core.CoreBootManager - Umbraco 7.5.9 application starting on WORKSTATION3
+ 2017-02-15 09:56:12,718 [P12676/D3/T1] INFO  Umbraco.Core.PluginManager - Determining hash of code files on disk
+ 2017-02-15 09:56:12,723 [P12676/D3/T1] INFO  Umbraco.Core.PluginManager - Hash determined (took 4ms)
+ 2017-02-15 09:56:12,749 [P12676/D3/T1] INFO  Umbraco.Core.MainDom - Acquiring MainDom...
+ 2017-02-15 09:56:12,750 [P12676/D3/T1] INFO  Umbraco.Core.MainDom - Acquired MainDom.
+ 2017-02-15 09:56:12,753 [P12676/D3/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of umbraco.interfaces.IApplicationStartupHandler
+ 2017-02-15 09:56:12,791 [P12676/D3/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 0 (took 38ms)
+ 2017-02-15 09:56:12,831 [P12676/D3/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+ 2017-02-15 09:56:12,832 [P12676/D3/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 0ms)
+ 2017-02-15 09:56:12,832 [P12676/D3/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyValueConverter
+ 2017-02-15 09:56:12,833 [P12676/D3/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyValueConverter, found 0 (took 1ms)
+ 2017-02-15 09:56:12,841 [P12676/D3/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.Mvc.SurfaceController
+ 2017-02-15 09:56:12,841 [P12676/D3/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 0ms)
+ 2017-02-15 09:56:12,842 [P12676/D3/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.WebApi.UmbracoApiController
+ 2017-02-15 09:56:12,845 [P12676/D3/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.WebApi.UmbracoApiController, found 0 (took 3ms)
+ 2017-02-15 09:56:12,896 [P12676/D3/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Core.Media.IThumbnailProvider
+ 2017-02-15 09:56:12,897 [P12676/D3/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 0 (took 0ms)
+ 2017-02-15 09:56:12,897 [P12676/D3/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Core.Media.IImageUrlProvider
+ 2017-02-15 09:56:12,897 [P12676/D3/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 0 (took 0ms)
+ 2017-02-15 09:56:13,469 [P12676/D3/T1] INFO  Umbraco.Core.DatabaseContext - CanConnect = True
+ 2017-02-15 09:56:13,608 [P12676/D3/T1] INFO  Umbraco.Web.Cache.CacheRefresherEventHandler - Initializing Umbraco internal event handlers for cache refreshing
+ 2017-02-15 09:56:13,646 [P12676/D3/T1] INFO  Umbraco.Web.Search.ExamineEvents - Initializing Examine and binding to business logic events
+ 2017-02-15 09:56:13,687 [P12676/D3/T1] INFO  Umbraco.Web.Search.ExamineEvents - Adding examine event handlers for index providers: 3
+ 2017-02-15 09:56:13,710 [P12676/D3/T1] INFO  Umbraco.Core.CoreBootManager - Umbraco application startup complete (took 1049ms)
+ 2017-02-15 09:56:14,199 [P12676/D3/T151] INFO  Umbraco.Core.Sync.ApplicationUrlHelper - ApplicationUrl: http://localhost:62510/umbraco (UmbracoModule request)
+ 2017-02-15 09:56:14,712 [P12676/D3/T16] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.Trees.TreeController
+ 2017-02-15 09:56:14,713 [P12676/D3/T16] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.Trees.TreeController, found 0 (took 0ms)
+ 2017-02-15 09:56:14,715 [P12676/D3/T16] INFO  Umbraco.Core.PluginManager - Starting resolution types of umbraco.interfaces.ITree
+ 2017-02-15 09:56:14,715 [P12676/D3/T16] INFO  Umbraco.Core.PluginManager - Completed resolution of types of umbraco.interfaces.ITree, found 0 (took 0ms)
+ 2017-02-15 09:56:14,752 [P12676/D3/T148] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Core.Persistence.Mappers.BaseMapper
+ 2017-02-15 09:56:14,753 [P12676/D3/T148] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Core.Persistence.Mappers.BaseMapper, found 0 (took 0ms)
+ 2017-02-15 09:56:15,082 [P12676/D3/T148] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Core.PropertyEditors.IParameterEditor
+ 2017-02-15 09:56:15,083 [P12676/D3/T148] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Core.PropertyEditors.IParameterEditor, found 0 (took 0ms)
+ 2017-02-15 09:56:16,816 [P12676/D3/T16] INFO  umbraco.content - Load Xml from file...
+ 2017-02-15 09:56:16,817 [P12676/D3/T16] INFO  umbraco.content - Loaded Xml from file.
+ 2017-02-15 09:56:41,420 [P12676/D2/T178] INFO  Umbraco.Core.UmbracoApplicationBase - Application shutdown. Details: MaxRecompilationsReached
+
+_shutDownMessage=Recompilation limit of 50 reached
+HostingEnvironment initiated shutdown
+HostingEnvironment caused shutdown
+
+_shutDownStack=   at System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   at System.Environment.get_StackTrace()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownInternal()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownWithoutDemand()
+   at System.Web.HttpRuntime.ShutdownAppDomain(String stackTrace)
+   at System.Web.Compilation.DiskBuildResultCache.ShutdownCallBack(Object state)
+   at System.Threading.QueueUserWorkItemCallback.WaitCallback_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.QueueUserWorkItemCallback.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+ 2017-02-15 09:56:41,529 [P12676/D3/T131] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Mauro Erriquez' with Id '1089' has been published.
+ 2017-02-15 09:56:41,639 [P12676/D3/T131] INFO  Umbraco.Core.PluginManager - Starting resolution types of umbraco.interfaces.ICacheRefresher
+ 2017-02-15 09:56:41,639 [P12676/D3/T131] INFO  Umbraco.Core.PluginManager - Completed resolution of types of umbraco.interfaces.ICacheRefresher, found 0 (took 0ms)
+ 2017-02-15 09:56:43,998 [P12676/D3/T178] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.Trees.TreeController
+ 2017-02-15 09:56:43,998 [P12676/D3/T178] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.Trees.TreeController, found 0 (took 0ms)
+ 2017-02-15 09:56:44,104 [P12676/D3/T7] INFO  Umbraco.Core.PluginManager - Starting resolution types of umbraco.interfaces.ITree
+ 2017-02-15 09:56:44,104 [P12676/D3/T7] INFO  Umbraco.Core.PluginManager - Completed resolution of types of umbraco.interfaces.ITree, found 0 (took 0ms)
+ 2017-02-15 09:56:44,111 [P12676/D3/T7] INFO  Umbraco.Core.PluginManager - Starting resolution types of umbraco.interfaces.IApplication
+ 2017-02-15 09:56:44,111 [P12676/D3/T7] INFO  Umbraco.Core.PluginManager - Completed resolution of types of umbraco.interfaces.IApplication, found 0 (took 0ms)
+ 2017-02-15 09:56:45,709 [P12676/D3/T155] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 09:56:45,715 [P12676/D3/T155] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 09:56:55,606 [P12676/D3/T7] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Wolfgang Schnellbächer' with Id '1090' has been published.
+ 2017-02-15 09:56:59,675 [P12676/D3/T131] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 09:56:59,680 [P12676/D3/T131] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 09:57:10,975 [P12676/D3/T144] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Teresa Liptak' with Id '1091' has been published.
+ 2017-02-15 09:57:14,592 [P12676/D3/T173] INFO  umbraco.BusinessLogic.Log - Log scrubbed.  Removed all items older than 2017-02-14 09:57:14
+ 2017-02-15 09:57:15,048 [P12676/D3/T178] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 09:57:15,049 [P12676/D3/T178] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 09:57:25,752 [P12676/D3/T178] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Ed Woodcock' with Id '1092' has been published.
+ 2017-02-15 09:57:29,830 [P12676/D3/T151] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 09:57:29,836 [P12676/D3/T151] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 09:57:42,021 [P12676/D3/T178] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Antonio De Gregorio' with Id '1093' has been published.
+ 2017-02-15 09:57:46,080 [P12676/D3/T108] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 09:57:46,082 [P12676/D3/T108] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 09:58:06,286 [P12676/D3/T158] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'George Joseph' with Id '1094' has been published.
+ 2017-02-15 09:58:10,345 [P12676/D3/T164] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 09:58:10,347 [P12676/D3/T164] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 10:15:24,430 [P12676/D3/T15] INFO  Umbraco.Core.Logging.OwinLogger - Event Id: 0, state: User logged will be logged out due to timeout: ddweil@yahoo.com, IP Address: ::1
+ 2017-02-15 10:15:27,388 [P12676/D3/T15] INFO  Umbraco.Core.Logging.OwinLogger - Event Id: 0, state: User logged will be logged out due to timeout: ddweil@yahoo.com, IP Address: ::1
+ 2017-02-15 10:15:30,435 [P12676/D3/T180] INFO  Umbraco.Core.Logging.OwinLogger - Event Id: 0, state: User logged will be logged out due to timeout: ddweil@yahoo.com, IP Address: ::1
+ 2017-02-15 10:18:39,656 [P12676/D3/T203] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: Login attempt succeeded for username ddweil@yahoo.com from IP address ::1
+ 2017-02-15 10:18:39,658 [P12676/D3/T203] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: User: ddweil@yahoo.com logged in from IP address ::1
+ 2017-02-15 10:18:51,667 [P12676/D3/T210] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Impact' with Id '0' has been published.
+ 2017-02-15 10:18:55,747 [P12676/D3/T194] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 10:18:55,749 [P12676/D3/T194] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 10:19:34,034 [P12676/D3/T56] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Impact' with Id '1108' has been published.
+ 2017-02-15 10:19:38,087 [P12676/D3/T194] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 10:19:38,089 [P12676/D3/T194] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 10:19:45,325 [P12676/D3/T109] WARN  Umbraco.Web.UmbracoModule - Status code is 404 yet TrySkipIisCustomErrors is false - IIS will take over.
+ 2017-02-15 10:19:54,564 [P12676/D3/T109] WARN  Umbraco.Web.UmbracoModule - Status code is 404 yet TrySkipIisCustomErrors is false - IIS will take over.
+ 2017-02-15 10:26:09,885 [P12676/D3/T160] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 10:26:09,885 [P12676/D3/T160] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 10:26:09,885 [P12676/D3/T164] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 10:26:09,885 [P12676/D3/T164] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 10:26:09,885 [P12676/D3/T164] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 10:26:09,885 [P12676/D3/T164] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 10:26:09,887 [P12676/D3/T204] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 10:26:09,887 [P12676/D3/T204] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 10:26:09,887 [P12676/D3/T204] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 10:26:09,887 [P12676/D3/T204] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 10:26:09,914 [P12676/D3/T198] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 10:26:09,923 [P12676/D3/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 10:26:26,146 [P12676/D3/T224] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 10:26:26,146 [P12676/D3/T224] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 10:26:28,926 [P12676/D3/T56] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.Editors.IEditorValidator
+ 2017-02-15 10:26:28,928 [P12676/D3/T56] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.Editors.IEditorValidator, found 0 (took 1ms)
+ 2017-02-15 10:26:52,786 [P12676/D3/T98] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.Trees.TreeController
+ 2017-02-15 10:26:52,786 [P12676/D3/T98] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.Trees.TreeController, found 0 (took 0ms)
+ 2017-02-15 10:26:52,997 [P12676/D3/T208] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 10:26:52,997 [P12676/D3/T208] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 10:26:52,997 [P12676/D3/T210] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 10:26:52,997 [P12676/D3/T210] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 10:26:52,997 [P12676/D3/T210] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 10:26:52,997 [P12676/D3/T210] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 10:26:52,997 [P12676/D3/T164] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 10:26:52,997 [P12676/D3/T164] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 10:26:52,997 [P12676/D3/T164] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 10:26:52,997 [P12676/D3/T164] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 10:26:53,006 [P12676/D3/T56] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 10:26:53,007 [P12676/D3/T204] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 10:27:34,707 [P12676/D3/T116] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 10:27:34,707 [P12676/D3/T116] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 10:28:29,980 [P12676/D3/T208] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 10:28:29,980 [P12676/D3/T208] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 10:28:29,980 [P12676/D3/T116] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 10:28:29,980 [P12676/D3/T116] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 10:28:29,980 [P12676/D3/T116] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 10:28:29,980 [P12676/D3/T116] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 10:28:29,996 [P12676/D3/T56] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 10:28:29,996 [P12676/D3/T216] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 10:28:29,996 [P12676/D3/T216] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 10:28:30,000 [P12676/D3/T212] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 10:28:30,000 [P12676/D3/T212] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 10:28:30,000 [P12676/D3/T212] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 10:28:30,000 [P12676/D3/T212] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 10:28:30,000 [P12676/D3/T109] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 10:28:38,329 [P12676/D3/T21] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 10:28:38,329 [P12676/D3/T21] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 10:28:38,333 [P12676/D3/T216] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 10:28:38,333 [P12676/D3/T216] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 10:28:38,333 [P12676/D3/T109] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 10:28:38,333 [P12676/D3/T109] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 10:28:38,333 [P12676/D3/T109] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 10:28:38,333 [P12676/D3/T109] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 10:28:38,333 [P12676/D3/T213] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 10:28:38,333 [P12676/D3/T213] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 10:28:38,338 [P12676/D3/T164] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 10:28:38,338 [P12676/D3/T164] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 10:28:38,339 [P12676/D3/T21] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 10:28:38,339 [P12676/D3/T21] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 10:28:38,339 [P12676/D3/T21] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 10:28:38,339 [P12676/D3/T21] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 10:28:38,344 [P12676/D3/T164] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 10:28:38,345 [P12676/D3/T21] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 10:28:56,499 [P12676/D3/T211] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Impact' with Id '1108' has been published.
+ 2017-02-15 10:29:00,547 [P12676/D3/T224] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 10:29:00,555 [P12676/D3/T224] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 10:34:18,653 [P12676/D3/T194] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Impact' with Id '1108' has been published.
+ 2017-02-15 10:34:22,714 [P12676/D3/T224] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 10:34:22,718 [P12676/D3/T224] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 10:35:47,807 [P12676/D3/T206] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Impact' with Id '1108' has been published.
+ 2017-02-15 10:35:51,884 [P12676/D3/T111] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 10:35:51,888 [P12676/D3/T111] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 10:40:25,121 [P12676/D3/T21] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Video' with Id '0' has been published.
+ 2017-02-15 10:40:29,183 [P12676/D3/T206] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 10:40:29,197 [P12676/D3/T206] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 10:51:13,536 [P12676/D3/T212] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Video' with Id '1110' has been published.
+ 2017-02-15 10:51:17,598 [P12676/D3/T21] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 10:51:17,602 [P12676/D3/T21] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 10:53:12,984 [P12676/D3/T198] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Video' with Id '1110' has been published.
+ 2017-02-15 10:53:17,043 [P12676/D3/T211] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 10:53:17,046 [P12676/D3/T211] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 10:54:14,615 [P12676/D3/T208] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Row 2' with Id '0' has been published.
+ 2017-02-15 10:54:18,683 [P12676/D3/T164] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 10:54:18,687 [P12676/D3/T164] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 10:54:45,784 [P12676/D3/T194] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Row 2' with Id '1114' has been published.
+ 2017-02-15 10:54:49,858 [P12676/D3/T204] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 10:54:49,869 [P12676/D3/T204] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 10:54:58,394 [P12676/D3/T15] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Row 2' with Id '1114' has been published.
+ 2017-02-15 10:55:02,465 [P12676/D3/T109] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 10:55:02,470 [P12676/D3/T109] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 10:57:18,516 [P12676/D3/T15] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Row 2' with Id '1114' has been published.
+ 2017-02-15 10:57:22,573 [P12676/D3/T116] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 10:57:22,582 [P12676/D3/T116] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 11:09:05,389 [P12676/D3/T15] INFO  Umbraco.Core.Logging.OwinLogger - Event Id: 0, state: User logged will be logged out due to timeout: ddweil@yahoo.com, IP Address: ::1
+ 2017-02-15 11:09:51,670 [P12676/D3/T164] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: Login attempt succeeded for username ddweil@yahoo.com from IP address ::1
+ 2017-02-15 11:09:51,670 [P12676/D3/T164] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: User: ddweil@yahoo.com logged in from IP address ::1
+ 2017-02-15 11:15:22,124 [P12676/D3/T212] WARN  Umbraco.Web.UmbracoModule - Status code is 404 yet TrySkipIisCustomErrors is false - IIS will take over.
+ 2017-02-15 11:15:50,411 [P12676/D3/T211] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Video' with Id '1110' has been published.
+ 2017-02-15 11:15:54,448 [P12676/D3/T224] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 11:15:54,456 [P12676/D3/T224] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 11:15:57,082 [P12676/D3/T15] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Row 2' with Id '1114' has been published.
+ 2017-02-15 11:16:01,135 [P12676/D3/T212] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 11:16:01,149 [P12676/D3/T212] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 11:18:59,528 [P12676/D3/T213] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Impact' with Id '1108' has been published.
+ 2017-02-15 11:19:03,602 [P12676/D3/T21] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 11:19:03,607 [P12676/D3/T21] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 11:21:03,494 [P12676/D3/T216] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Impact' with Id '1108' has been published.
+ 2017-02-15 11:21:07,581 [P12676/D3/T164] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 11:21:07,587 [P12676/D3/T164] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 11:21:26,207 [P12676/D3/T98] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Impact' with Id '1108' has been published.
+ 2017-02-15 11:21:30,299 [P12676/D3/T98] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 11:21:30,313 [P12676/D3/T98] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 11:21:55,241 [P12676/D3/T224] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Impact' with Id '1108' has been published.
+ 2017-02-15 11:21:59,322 [P12676/D3/T193] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 11:21:59,328 [P12676/D3/T193] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 11:22:19,922 [P12676/D3/T98] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Impact' with Id '1108' has been published.
+ 2017-02-15 11:22:23,995 [P12676/D3/T56] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 11:22:24,010 [P12676/D3/T56] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 11:23:03,813 [P12676/D3/T131] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Impact' with Id '1108' has been published.
+ 2017-02-15 11:23:07,898 [P12676/D3/T164] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 11:23:07,907 [P12676/D3/T164] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 11:26:19,309 [P12676/D3/T204] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Impact' with Id '1108' has been published.
+ 2017-02-15 11:26:23,369 [P12676/D3/T194] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 11:26:23,382 [P12676/D3/T194] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 11:29:00,470 [P12676/D3/T158] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Impact' with Id '1108' has been published.
+ 2017-02-15 11:29:04,517 [P12676/D3/T212] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 11:29:04,523 [P12676/D3/T212] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 11:30:34,039 [P12676/D3/T131] WARN  Umbraco.Core.Persistence.Repositories.VersionableRepositoryBase`2[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Umbraco.Core.Models.IContent, Umbraco.Core, Version=1.0.6247.17495, Culture=neutral, PublicKeyToken=null]] - The query returned multiple property sets for document definition 1108, Page
+ 2017-02-15 11:30:34,040 [P12676/D3/T131] WARN  Umbraco.Core.Persistence.Repositories.VersionableRepositoryBase`2[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Umbraco.Core.Models.IContent, Umbraco.Core, Version=1.0.6247.17495, Culture=neutral, PublicKeyToken=null]] - The query returned multiple property sets for document definition 1108, Page
+ 2017-02-15 11:30:34,040 [P12676/D3/T131] WARN  Umbraco.Core.Persistence.Repositories.VersionableRepositoryBase`2[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Umbraco.Core.Models.IContent, Umbraco.Core, Version=1.0.6247.17495, Culture=neutral, PublicKeyToken=null]] - The query returned multiple property sets for document definition 1108, Page
+ 2017-02-15 11:30:34,040 [P12676/D3/T131] WARN  Umbraco.Core.Persistence.Repositories.VersionableRepositoryBase`2[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Umbraco.Core.Models.IContent, Umbraco.Core, Version=1.0.6247.17495, Culture=neutral, PublicKeyToken=null]] - The query returned multiple property sets for document definition 1108, Page
+ 2017-02-15 11:30:34,040 [P12676/D3/T131] WARN  Umbraco.Core.Persistence.Repositories.VersionableRepositoryBase`2[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Umbraco.Core.Models.IContent, Umbraco.Core, Version=1.0.6247.17495, Culture=neutral, PublicKeyToken=null]] - The query returned multiple property sets for document definition 1108, Page
+ 2017-02-15 11:30:34,040 [P12676/D3/T131] WARN  Umbraco.Core.Persistence.Repositories.VersionableRepositoryBase`2[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Umbraco.Core.Models.IContent, Umbraco.Core, Version=1.0.6247.17495, Culture=neutral, PublicKeyToken=null]] - The query returned multiple property sets for document definition 1108, Page
+ 2017-02-15 11:30:34,040 [P12676/D3/T131] WARN  Umbraco.Core.Persistence.Repositories.VersionableRepositoryBase`2[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Umbraco.Core.Models.IContent, Umbraco.Core, Version=1.0.6247.17495, Culture=neutral, PublicKeyToken=null]] - The query returned multiple property sets for document definition 1108, Page
+ 2017-02-15 11:30:34,040 [P12676/D3/T131] WARN  Umbraco.Core.Persistence.Repositories.VersionableRepositoryBase`2[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Umbraco.Core.Models.IContent, Umbraco.Core, Version=1.0.6247.17495, Culture=neutral, PublicKeyToken=null]] - The query returned multiple property sets for document definition 1108, Page
+ 2017-02-15 11:30:34,040 [P12676/D3/T131] WARN  Umbraco.Core.Persistence.Repositories.VersionableRepositoryBase`2[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Umbraco.Core.Models.IContent, Umbraco.Core, Version=1.0.6247.17495, Culture=neutral, PublicKeyToken=null]] - The query returned multiple property sets for document definition 1108, Page
+ 2017-02-15 11:30:34,040 [P12676/D3/T131] WARN  Umbraco.Core.Persistence.Repositories.VersionableRepositoryBase`2[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Umbraco.Core.Models.IContent, Umbraco.Core, Version=1.0.6247.17495, Culture=neutral, PublicKeyToken=null]] - The query returned multiple property sets for document definition 1108, Page
+ 2017-02-15 11:30:34,041 [P12676/D3/T131] WARN  Umbraco.Core.Persistence.Repositories.VersionableRepositoryBase`2[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Umbraco.Core.Models.IContent, Umbraco.Core, Version=1.0.6247.17495, Culture=neutral, PublicKeyToken=null]] - The query returned multiple property sets for document definition 1108, Page
+ 2017-02-15 11:30:34,041 [P12676/D3/T131] WARN  Umbraco.Core.Persistence.Repositories.VersionableRepositoryBase`2[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Umbraco.Core.Models.IContent, Umbraco.Core, Version=1.0.6247.17495, Culture=neutral, PublicKeyToken=null]] - The query returned multiple property sets for document definition 1108, Page
+ 2017-02-15 11:30:37,033 [P12676/D3/T194] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Impact' with Id '1108' has been published.
+ 2017-02-15 11:30:41,094 [P12676/D3/T158] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 11:30:41,097 [P12676/D3/T158] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 11:31:13,613 [P12676/D3/T203] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 11:31:13,613 [P12676/D3/T203] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 11:31:13,613 [P12676/D3/T213] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 11:31:13,613 [P12676/D3/T213] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 11:31:13,613 [P12676/D3/T213] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 11:31:13,613 [P12676/D3/T213] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 11:31:13,613 [P12676/D3/T136] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 11:31:13,613 [P12676/D3/T136] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 11:31:13,613 [P12676/D3/T136] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 11:31:13,613 [P12676/D3/T136] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 11:31:13,624 [P12676/D3/T164] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 11:31:13,626 [P12676/D3/T198] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 11:31:13,633 [P12676/D3/T194] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 11:31:13,633 [P12676/D3/T194] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 11:32:31,430 [P12676/D3/T98] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.Trees.TreeController
+ 2017-02-15 11:32:31,430 [P12676/D3/T98] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.Trees.TreeController, found 0 (took 0ms)
+ 2017-02-15 11:32:31,663 [P12676/D3/T224] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 11:32:31,663 [P12676/D3/T224] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 11:32:31,664 [P12676/D3/T109] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 11:32:31,664 [P12676/D3/T109] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 11:32:31,664 [P12676/D3/T109] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 11:32:31,664 [P12676/D3/T109] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 11:32:31,665 [P12676/D3/T203] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 11:32:31,665 [P12676/D3/T203] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 11:32:31,665 [P12676/D3/T203] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 11:32:31,665 [P12676/D3/T203] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 11:32:31,675 [P12676/D3/T98] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 11:32:31,680 [P12676/D3/T109] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 11:33:22,558 [P12676/D3/T212] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Impact' with Id '1108' has been published.
+ 2017-02-15 11:33:26,640 [P12676/D3/T131] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 11:33:26,646 [P12676/D3/T131] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 11:42:23,260 [P12676/D3/T164] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Impact' with Id '1108' has been published.
+ 2017-02-15 11:42:27,399 [P12676/D3/T173] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 11:42:27,402 [P12676/D3/T173] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 11:57:31,123 [P12676/D3/T26] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 11:57:31,123 [P12676/D3/T26] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 11:57:31,130 [P12676/D3/T70] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 11:57:31,130 [P12676/D3/T70] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 11:57:31,130 [P12676/D3/T70] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 11:57:31,130 [P12676/D3/T70] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 11:57:31,132 [P12676/D3/T218] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 11:57:31,132 [P12676/D3/T218] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 11:57:31,136 [P12676/D3/T9] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 11:57:31,136 [P12676/D3/T9] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 11:57:31,136 [P12676/D3/T9] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 11:57:31,136 [P12676/D3/T9] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 11:57:31,148 [P12676/D3/T9] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 11:57:31,150 [P12676/D3/T227] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 12:16:39,284 [P12676/D3/T135] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 12:16:39,284 [P12676/D3/T135] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 12:16:39,287 [P12676/D3/T182] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 12:16:39,287 [P12676/D3/T182] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 12:16:39,287 [P12676/D3/T182] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 12:16:39,287 [P12676/D3/T182] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 12:16:39,292 [P12676/D3/T184] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 12:16:39,292 [P12676/D3/T184] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 12:16:39,292 [P12676/D3/T184] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 12:16:39,292 [P12676/D3/T184] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 12:16:39,311 [P12676/D3/T11] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 12:16:39,311 [P12676/D3/T135] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 12:16:39,312 [P12676/D3/T135] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 12:16:39,315 [P12676/D3/T60] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 12:17:33,096 [P12676/D3/T199] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 12:17:33,096 [P12676/D3/T199] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 12:17:45,091 [P12676/D3/T135] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 12:17:45,091 [P12676/D3/T135] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 12:17:45,093 [P12676/D3/T199] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 12:17:45,093 [P12676/D3/T199] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 12:17:45,093 [P12676/D3/T199] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 12:17:45,093 [P12676/D3/T199] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 12:17:45,094 [P12676/D3/T44] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 12:17:45,094 [P12676/D3/T44] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 12:17:45,094 [P12676/D3/T44] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 12:17:45,094 [P12676/D3/T44] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 12:17:45,111 [P12676/D3/T44] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 12:17:45,112 [P12676/D3/T199] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 12:17:45,112 [P12676/D3/T207] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 12:17:45,112 [P12676/D3/T207] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 12:17:45,115 [P12676/D3/T184] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 12:17:45,115 [P12676/D3/T184] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 12:18:08,597 [P12676/D3/T184] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Contact Us' with Id '0' has been published.
+ 2017-02-15 12:18:12,660 [P12676/D3/T173] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 12:18:12,662 [P12676/D3/T173] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 12:20:13,837 [P12676/D3/T60] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Contact Us' with Id '1119' has been published.
+ 2017-02-15 12:20:17,915 [P12676/D3/T182] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 12:20:17,931 [P12676/D3/T182] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 12:20:24,924 [P12676/D3/T118] WARN  Umbraco.Web.UmbracoModule - Status code is 404 yet TrySkipIisCustomErrors is false - IIS will take over.
+ 2017-02-15 12:20:45,913 [P12676/D3/T177] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 12:20:45,913 [P12676/D3/T177] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 12:20:45,916 [P12676/D3/T123] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 12:20:45,916 [P12676/D3/T123] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 12:20:45,916 [P12676/D3/T123] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 12:20:45,916 [P12676/D3/T123] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 12:20:45,916 [P12676/D3/T180] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 12:20:45,916 [P12676/D3/T180] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 12:20:45,916 [P12676/D3/T180] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 12:20:45,916 [P12676/D3/T180] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 12:20:45,930 [P12676/D3/T107] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 12:20:45,937 [P12676/D3/T182] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 12:20:45,938 [P12676/D3/T207] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 12:20:45,938 [P12676/D3/T207] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 12:20:45,938 [P12676/D3/T123] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 12:20:45,938 [P12676/D3/T123] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 12:20:55,388 [P12676/D3/T118] WARN  Umbraco.Web.UmbracoModule - Status code is 404 yet TrySkipIisCustomErrors is false - IIS will take over.
+ 2017-02-15 12:21:09,358 [P12676/D3/T195] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Contact Us' with Id '1119' has been published.
+ 2017-02-15 12:21:13,413 [P12676/D3/T192] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 12:21:13,417 [P12676/D3/T192] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 12:21:57,559 [P12676/D3/T181] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 12:21:57,559 [P12676/D3/T181] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 12:21:57,560 [P12676/D3/T83] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 12:21:57,560 [P12676/D3/T83] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 12:21:57,560 [P12676/D3/T83] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 12:21:57,560 [P12676/D3/T83] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 12:21:57,562 [P12676/D3/T184] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-15 12:21:57,562 [P12676/D3/T184] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-15 12:21:57,562 [P12676/D3/T184] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-15 12:21:57,562 [P12676/D3/T184] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-15 12:21:57,577 [P12676/D3/T189] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 12:21:57,578 [P12676/D3/T123] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-15 12:21:57,577 [P12676/D3/T33] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 12:21:57,580 [P12676/D3/T33] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 12:21:57,581 [P12676/D3/T11] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 12:21:57,581 [P12676/D3/T11] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 12:22:15,382 [P12676/D3/T196] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-15 12:22:15,382 [P12676/D3/T196] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-15 12:23:13,311 [P12676/D3/T184] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Contact Us' with Id '1119' has been published.
+ 2017-02-15 12:23:17,405 [P12676/D3/T207] INFO  umbraco.content - Save Xml to file...
+ 2017-02-15 12:23:17,409 [P12676/D3/T207] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-15 12:36:11,341 [P12676/D3/T218] INFO  Umbraco.Core.Logging.OwinLogger - Event Id: 0, state: User logged will be logged out due to timeout: ddweil@yahoo.com, IP Address: ::1
+ 2017-02-15 13:57:14,534 [P12676/D3/T170] INFO  umbraco.BusinessLogic.Log - Log scrubbed.  Removed all items older than 2017-02-14 13:57:14

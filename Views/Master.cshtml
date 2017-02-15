@@ -1,0 +1,64 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+    var pageClass = Model.Content.HasValue("className") ? Model.Content.GetPropertyValue("className") : "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="@(Model.Content.GetPropertyValue<string>("tags"))" />
+
+    @Html.Partial("Partials/ExternalRedirect")
+    @Html.Partial("Partials/OpenGraph")
+    @Html.Partial("Partials/MetaTitle")
+
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!--title>S2P</title-->
+
+    <!-- Bootstrap -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/css/aos.css" rel="stylesheet">
+    <link href="~/css/custom.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+    <link href="~/css/mobile.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    @RenderSection("head", false)
+</head>
+<body class="@pageClass">
+    <!-- HEADER -->
+    <header class="mck-header" data-mck-header>
+        <div class="mck-header__details">
+            <a href="#" class="mck-header__logo">McKinsey & Company</a>
+            <!--    <span class="mck-header__portal-title">Portal Title</span>-->
+            <a href="#" class="mck-header__expand-close mck-icon__x" data-mck-header-close></a>
+        </div>
+        @Html.Partial("Partials/MainNav")
+    </header>
+    @RenderBody()
+    <!-- FOOTER -->
+    <footer class="footer">
+        <a href="#" class="mck-footer__logo">McKinsey & Company</a>
+        <p class="mck-footer__copy">Suggestions? <a href="mailto:uig_feedback@mckinsey.com">Send us feedback</a></p>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <script src="~/scripts/mck-ui.min.js"></script>
+    <script src="~/scripts/aos.js"></script>
+    <script src="~/scripts/s2p.js"></script>
+</body>
+</html>

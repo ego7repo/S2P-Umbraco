@@ -1,0 +1,50 @@
+﻿@using System.Text
+@using Umbraco.Core
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<ModuleViewModel>
+
+@{
+	var className	= Model.Content.HasValue("className") ? Model.Content.GetPropertyValue("className") : "";
+}
+
+<div class="@className tabbed-pane">
+    @if(Model.Content.HasValue("tabPaneContent")) 
+    {
+        @Html.Raw(Model.Content.GetPropertyValue("tabPaneContent").ToString());
+    }
+    
+    <ul class="tab-wrapper">
+        @foreach (var child in Model.Content.Children().Where(n => n.DocumentTypeAlias == "TabbedPaneTab"))
+        {
+            if (child.IsFirst())
+            {
+                <li class="selected"><label>@child.GetPropertyValue("tabName")</label></li>
+            }
+            else
+            {
+                <li><label>@child.GetPropertyValue("tabName")</label></li>
+            }
+            
+        }
+    </ul>
+    <div class="tab-content-wrapper">
+        @foreach (var child in Model.Content.Children().Where(n => n.DocumentTypeAlias == "TabbedPaneTab"))
+        {
+            if (child.IsFirst())
+            {
+                <div class="tab-content selected">
+                    <div class="header"><label>@child.GetPropertyValue("tabName")</label><span>+</span></div>
+                    <div class="txt-wrapper">@child.GetPropertyValue("tabContent")</div>
+                </div>
+            }
+            else
+            {
+                <div class="tab-content">
+                    <div class="header"><label>@child.GetPropertyValue("tabName")</label><span>+</span></div>
+                    <div class="txt-wrapper">@child.GetPropertyValue("tabContent")</div>
+                </div>
+            }
+        }
+    </div>
+</div>
+    
+   

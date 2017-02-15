@@ -1,0 +1,6 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@if(Model.Content.HasValue("redirectToUrl"))
+{
+    Response.Redirect(Model.Content.GetPropertyValue<string>("redirectToUrl"), true);
+    return;
+}

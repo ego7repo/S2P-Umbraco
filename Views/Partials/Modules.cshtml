@@ -1,0 +1,9 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var modules = Model.Content.Children.Where(x => x.DocumentTypeAlias.EndsWith("Module"));
+
+    foreach (var module in modules)
+    {
+        @Html.Partial("Partials/Modules/" + module.DocumentTypeAlias, new ModuleViewModel(module, Model.Content))
+    } 
+}

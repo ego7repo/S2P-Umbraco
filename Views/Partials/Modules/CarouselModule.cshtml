@@ -1,0 +1,37 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ModuleViewModel>
+@{
+
+    var className   = Model.Content.GetPropertyValue("className");
+    var bgColor     = Model.Content.HasValue("bgColor") ? "style=background:#" + Model.Content.GetPropertyValue("bgColor") : "";
+    var index       = 0;
+
+    <div class="carousel @className" @bgColor>
+        @if (Model.Content.HasValue("header"))
+        {
+            @Html.Raw(Model.Content.GetPropertyValue("header").ToString());
+        }
+        <div class="arrow left"></div>
+        <div class="arrow right"></div>
+        <div class="wrapper">
+            <div class="item-wrapper">
+                <ul>
+                    @foreach(var item in Model.Content.Children())
+                    {
+                        var title       = item.HasValue("title") ? item.GetPropertyValue("title") : null;
+                        var description = item.HasValue("description") ? item.GetPropertyValue("description") : null;
+                        var link        = item.HasValue("link") ? Umbraco.Url(item.GetPropertyValue<int>("link")) : null;
+                        var img         = item.HasValue("img") ? @Umbraco.Media(item.GetPropertyValue("img")).umbracoFile : null;
+                        <li data-index="@index">
+                            <a href="@link">
+                                <h5>@title</h5>
+                                <img src="@img" />
+                                <p>@description</p>
+                            </a>
+                        </li>
+                        index++;
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+}

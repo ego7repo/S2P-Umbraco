@@ -1,0 +1,54 @@
+﻿@using Umbraco.Core
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<ModuleViewModel>
+@{
+    IPublishedContent content   = Model.Content;
+    var className               = content.GetPropertyValue("className");
+    var bgColor                 = content.HasValue("bgColor") ? "style=background:#" + content.GetPropertyValue("bgColor") : "";
+    var slides                  = content.Children.Where(x => x.DocumentTypeAlias == "SliderModuleSlide");
+
+    <div class="@className slider-module" @bgColor>
+        <div class="wrapper">
+            <ul class="slides">
+                @foreach (var slide in slides)
+                {
+                    <li class="slide" style="background: url('@Umbraco.Media(slide["image"]).umbracoFile') no-repeat center center">
+                        @if (slide.HasValue("imgLink"))
+                        {
+                            <a href="@Umbraco.Url(slide.GetPropertyValue<int>("imgLink"))">
+                                <!--img src="@Umbraco.Media(slide["image"]).umbracoFile" /-->
+                                @if (slide.HasValue("textContent"))
+                                {
+                                    <div class="content">
+                                        @Html.Raw(slide.GetPropertyValue("textContent").ToString())
+                                    </div>
+                                }
+                            </a>
+                        }
+                        else
+                        {
+                            <!--img src="@Umbraco.Media(slide["image"]).umbracoFile" /-->
+                            if (slide.HasValue("textContent"))
+                            {
+                                <div class="content">
+                                    @Html.Raw(slide.GetPropertyValue("textContent").ToString())
+                                </div>
+                            }
+                        }
+                    </li>
+                }
+            </ul>
+
+            @if (slides.Count() > 1)
+            {
+                <ul class="slider-nav">
+                    @foreach (var slide in slides)
+                    {
+                        <li class="slider-nav-item"></li>
+                    }
+                </ul>
+                <!--div class="arrow arrow-left"></div>
+                <div class="arrow arrow-right"></div-->
+            }
+        </div>
+    </div>
+}

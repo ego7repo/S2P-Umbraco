@@ -1,0 +1,32 @@
+﻿@using System.Text
+
+@{
+    var parent = Model.Content.Parent;
+    var items  = new List<IPublishedContent>();
+    items.Add(Model.Content);
+}
+
+<div class="breadcrumbs">
+	@while (parent != null)
+	{
+        items.Add(parent);
+        parent = parent.Parent;
+	}
+
+
+    <ul>
+    @for (int i = items.Count-1; i >= 0; i--)
+    {
+        if(i == 0)
+        {
+            <li>@items[i].Name</li>;
+        } 
+        else
+        {
+            <li><a href="@items[i].Url()">@items[i].Name</a><span> ›</span></li>;
+        }
+    }
+    </ul>
+</div>
+    
+   

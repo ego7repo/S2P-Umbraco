@@ -1,0 +1,21 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout              = "Master.cshtml";
+    var content         = Model.Content;
+    var bannerImg       = content.HasValue("pageBanner") ? Umbraco.Media(content.GetPropertyValue<int>("pageBanner")).Url : null;
+    var bannerStyle     = !String.IsNullOrEmpty(bannerImg) ? "style='background-image:url(" + bannerImg + ")'" : "";
+}
+
+
+@{
+    <div class="single-page">
+        <div class="page-header" @Html.Raw(bannerStyle)>
+            <div class="content" data-aos="fade-right" data-aos-once="true" data-aos-easing="ease-in-out">
+                @content["pageHeader"]
+            </div>
+        </div>
+        @Html.Partial("Partials/Modules/BreadCrumbModule")
+        <h3 class="first">@content["title"]</h3>
+        @Html.Partial("Partials/Modules")
+    </div>
+}

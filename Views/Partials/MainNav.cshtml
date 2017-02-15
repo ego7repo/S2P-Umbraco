@@ -1,0 +1,24 @@
+﻿@using Umbraco.Core
+@using Umbraco.Web
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var rootNode = Model.Content.AncestorOrSelf(1);
+} 
+
+@{
+
+
+    <nav class="mck-nav-main">
+        <a href="#" class="mck-nav-main__toggle mck-icon__menu"></a>
+        <ul class="mck-nav-main__list">
+            <li @Html.Raw(Model.Content.Id == rootNode.Id ? " class='is-active'" : "")>
+                <a href="@Url.Content("~/")">@rootNode.Name</a>
+            </li>
+
+            @foreach (var node in rootNode.Children.Where(x => x.IsVisible()))
+            {
+                <li @Html.Raw(Model.Content.AncestorsOrSelf().Any(x => x.Id == node.Id) ? " class='is-active'" : "")><a href="@node.Url()">@node.Name</a></li>
+            }
+        </ul>
+    </nav>
+}

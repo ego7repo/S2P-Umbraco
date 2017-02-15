@@ -1,0 +1,245 @@
+@media (min-width: 768px) {
+	.thirdsection .col-md-2 {
+	    width: 14.666667%;
+	}
+	.thirdsection .col-md-4{
+		width: 32.333333%;
+	}
+	.thirdsection .col-md-10 {
+	    width: 84.333333%;
+	}
+	.col-md-8 {
+	    width: 66.66666667%;
+	}
+	.col-md-10 {
+	    width: 83.33333333%;
+	}
+	.col-md-12,	.thirdsection .col-md-8  {
+	    width: 100%;
+	}
+	.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
+	    float: left;
+	}
+	.verticalline {
+	    height: 471px;
+	}
+	.hrimpact {
+	    margin: -215px 0 0 263px;
+	    width: 25px;
+	}
+	.circle-content {
+	    margin: 100px 0 0 70px;
+	}
+	.circle {
+	    width: 290px;
+	    height: 290px;
+	}
+	.hrdesign, .hrtransformation, .hrdigital, .hrdiag, .hrimpact, .verticalline{
+		display:none;
+	}
+	.circle-container {
+	    margin: 0 0 150px 90%;
+	}
+	.jumbotron{
+		margin-top:60px;
+	}
+
+
+
+}
+
+
+@media (min-width: 1024px) {
+	.jumbotron{
+		margin-top:100px;
+	}
+	.hrdesign, .hrtransformation, .hrdigital, .hrdiag, .hrimpact, .verticalline{
+		display:inline-block;
+	}
+	.circle {
+	    width: 250px;
+	    height: 250px;
+	}
+	.thirdsection .col-md-2 {
+	    width: 16.666667%;
+	}
+	.thirdsection .col-md-4{
+		width: 32.333333%;
+	}
+
+	.thirdsection .col-md-8 {
+	    width: 66.66666667%;
+	}
+	.thirdsection .col-md-10 {
+	    width: 83.333333%;
+	}
+	.verticalline {
+	    height: 471px;
+	}
+	.hrimpact {
+	    margin: -165px 0 0 263px;
+	    width: 25px;
+	}
+	.circle-content {
+	    margin: 86px 0 0 52px;
+	}
+	.circle-container {
+	    margin: 90px 0;
+	}
+}
+
+@media (min-width:1250px){
+	.circle {
+	    width: 290px;
+	    height: 290px;
+	}
+	.verticalline {
+	    height: 428px;
+	}
+	.hrimpact {
+	    margin: -150px 0 0 70px;
+	    width: 49px;
+	}
+	.circle-content {
+	    margin: 100px 0 0 70px;
+	}
+	
+
+}
+
+@media (max-width:767px){
+	.thirdsection .col-md-2 {
+	    width:110px;
+	}
+	.thirdsection .col-md-4{
+		width: 32.333333%;
+	}
+	.thirdsection .col-md-10 {
+	    width: 100%;
+	    max-width: 72%
+	}
+	.col-sm-offset-2 {
+	    margin-left: 16.66666667%;
+	}
+	.col-md-8,.col-sm-8 {
+	    width: 66.66666667%;
+	}
+	.col-md-10 {
+	    width: 83.33333333%;
+	}
+	.col-md-12,	.thirdsection .col-md-8,.fifthsection .col-md-8, .fifthsection .col-md-10,.thirdsection .col-md-4,.jumbotron .content, .fifthsection .col-md-4   {
+	    width: 100%;
+	}
+	.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
+	    float: left;
+	}
+	.verticalline {
+	    height: 471px;
+	}
+	.hrimpact {
+	    margin: -215px 0 0 263px;
+	    width: 25px;
+	}
+	.circle-content {
+	    margin: 86px 0 0 52px;
+	}
+	.circle {
+	    width: 250px;
+	    height: 250px;
+	}
+	.hrdesign, .hrtransformation, .hrdigital, .hrdiag, .hrimpact, .verticalline{
+		display:none;
+	}
+	.circle-container {
+	    margin: 0 0 150px 27%;
+	}
+	.jumbotron{
+		background-size:contain;
+		position: relative;
+		margin-top:60px;
+	}
+	.jumbotron .content{
+		width:100%;
+		z-index: 2;
+		position: relative
+	}
+	.jumbotron:after {
+	    content:'\A';
+	    position:absolute;
+	    width:100%; height:100%;
+	    top:0; left:0;
+	    background:rgba(0,0,0,0.6);
+
+	    transition: all 0.5s;
+	    -webkit-transition: all 0.5s;
+	    opacity:.2;
+	}
+	.fifthsection .container {
+	    margin: 40px auto 150px auto;
+	}
+	.fifthsection{
+		background-position-x: 30%;
+	}
+
+}
+
+
+@media (max-width:480px){
+	.circle {
+	    width: 200px;
+	    height: 200px;
+	    margin:30px 0 0 65px;
+	}
+	.thirdsection .col-md-2 {
+	    width:75px;
+	}
+	.thirdsection .col-md-4{
+		width: 32.333333%;
+	}
+	.thirdsection .col-md-10 {
+	    width: 100%;
+	    max-width: 75%;
+	    padding:0;
+	}
+	.thirdsection .col-md-2 img, .fifthsection .col-md-8, .fifthsection .col-md-10 {
+	    width:100%;
+	}
+	.circle-content {
+		font-size: 26px;
+		margin: 75px 0 0 112px;
+	}
+	.jumbotron .content{
+		width:100%;
+		z-index: 2;
+		position: relative
+	}
+	.jumbotron{
+		background-size:contain;
+		position: relative;
+		margin-top:60px;
+		background-attachment: initial;
+	}
+	
+	.jumbotron:after {
+	    content:'\A';
+	    position:absolute;
+	    width:100%; height:100%;
+	    top:0; left:0;
+	    background:rgba(0,0,0,0.6);
+
+	    transition: all 0.5s;
+	    -webkit-transition: all 0.5s;
+	    opacity:.2;
+	}
+	.fifthsection .container {
+	    margin: 40px auto 150px auto;
+	}
+	.fifthsection{
+		background-position-x: 30%;
+	}
+	.fourthsection blockquote {
+	    font: 18px HelveticaNeueLight;
+	}
+
+
+}

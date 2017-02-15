@@ -1,0 +1,14 @@
+﻿@using Umbraco.Core
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<ModuleViewModel>
+@{
+    IPublishedContent content   = Model.Content;
+    var className               = content.GetPropertyValue("className");
+    var bgColor                 = content.HasValue("bgColor") ? "style=background:#" + content.GetPropertyValue("bgColor") : "";
+
+    <div class="@className empty-row-module" @bgColor>
+        @if(content.HasValue("content"))
+        {
+            @Html.Raw(content.GetPropertyValue("content").ToString())
+        }
+    </div>
+}

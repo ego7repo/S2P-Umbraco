@@ -1,0 +1,36 @@
+﻿@using System.Text
+@using Umbraco.Core
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<ModuleViewModel>
+
+@{
+	var className	= Model.Content.HasValue("className") ? Model.Content.GetPropertyValue("className") : "";
+}
+
+<div class="@className collabsible-list">
+    @if(Model.Content.HasValue("content")) 
+    {
+        @Html.Raw(Model.Content.GetPropertyValue("content").ToString());
+    }
+    
+    <div class="list-wrapper">
+        @foreach (var child in Model.Content.Children().Where(n => n.DocumentTypeAlias == "CollabsibleListItem"))
+        {
+            if (child.IsFirst())
+            {
+                <div class="list-item selected">
+                    <div class="header"><label>@child.GetPropertyValue("tabName")</label><span>+</span></div>
+                    <div class="txt-wrapper">@child.GetPropertyValue("tabContent")</div>
+                </div>
+            }
+            else
+            {
+                <div class="list-item">
+                    <div class="header"><label>@child.GetPropertyValue("tabName")</label><span>+</span></div>
+                    <div class="txt-wrapper">@child.GetPropertyValue("tabContent")</div>
+                </div>
+            }
+        }
+    </div>
+</div>
+    
+   

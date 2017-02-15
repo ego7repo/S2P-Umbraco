@@ -1,0 +1,22 @@
+﻿@using Umbraco.Core
+@using Umbraco.Web
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var homePage = Model.Content.AncestorOrSelf(1);
+} 
+@{
+    var b1 = Model.Content.HasValue("OGtitle");
+    var b2 = Model.Content.HasValue("pageTitle");
+
+    var title = Model.Content.HasValue("OGtitle") ? Model.Content.GetPropertyValue("OGtitle") : Model.Content.HasValue("pageTitle") ? Model.Content.GetPropertyValue("pageTitle") : Model.Content.Name;
+    var image = Model.Content.HasValue("OGimage") ? @Request.Url.Host + Umbraco.Media(Model.Content.GetPropertyValue("OGimage")).umbracoFile : "";
+    var description = Model.Content.HasValue("OGdescription") ? Model.Content.GetPropertyValue("OGdescription") : "";
+
+    <meta name="description" content="@description">
+	<meta name="twitter:card" content="summary" />
+    <meta property="og:title" content="@title" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="@Request.Url.AbsoluteUri" />
+    <meta property="og:image" content="http://@image" />
+    <meta property="og:description" content="@description" />
+}

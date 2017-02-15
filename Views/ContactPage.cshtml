@@ -1,0 +1,74 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+    var content = Model.Content;
+}
+
+@{
+    <div class="contactpage">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="text-longform">
+                        <h1 class="contactheader">@content["title"]</h1>
+                        @content["lead"]
+                    </div>
+                    <div class="topicsection">
+                        <div class="text-uppercase">type of inquiry</div>
+                        <table class="scfRadioButtonList">
+                            <tbody>
+                                <tr>
+                                    <td><input name="topic" type="radio" value="General" checked="checked"><label>General</label></td>
+                                </tr>
+                                <tr>
+                                    <td><input name="topic" type="radio" value="Career opportunities"><label>Career opportunities</label></td>
+                                </tr>
+                                <tr>
+                                    <td><input name="topic" type="radio" value="How we help clients"><label>How we help clients</label></td>
+                                </tr>
+                                <tr>
+                                    <td><input name="topic" type="radio" value="Alumni services"><label>Alumni services</label></td>
+                                </tr>
+                                <tr>
+                                    <td><input name="topic" type="radio" value="McKinsey Quarterly"><label>McKinsey Quarterly</label></td>
+                                </tr>
+                                <tr>
+                                    <td><input name="topic" type="radio" value="McKinsey Global Institute"><label>McKinsey Global Institute</label></td>
+                                </tr>
+                                <tr>
+                                    <td><input name="topic" type="radio" value="User registration"><label>User registration</label></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="fields">
+                        <div>
+                            <label for="fname">Name *</label>
+                            <input type="text" id="fname" name="name">
+                        </div>
+                        <div>
+                            <label for="fname">Email *</label>
+                            <input type="text" id="email" name="email">
+                        </div>
+                        <div>
+                            <label for="fname">COMPANY OR SCHOOL</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        <div>
+                            <label for="fname">subject</label>
+                            <textarea rows="4" cols="50"></textarea>
+                        </div>
+                        <input type="submit" name="submit" id="submit" class="submitbutton">
+
+                    </div>
+
+                </div>
+                
+                @Html.Raw(content["rightPanel"])
+
+
+            </div><!-- row-->
+        </div><!-- container-->
+    </div>
+}

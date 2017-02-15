@@ -1,0 +1,47 @@
+﻿@using Umbraco.Core
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<ModuleViewModel>
+@{
+    IPublishedContent content   = Model.Content;
+    var className               = content.GetPropertyValue("className");
+    var bgColor                 = content.HasValue("bgColor") ? "style=background:#" + content.GetPropertyValue("bgColor") : "";
+    var fontColor               = content.HasValue("fontColor") ? "style=color:#" + content.GetPropertyValue("fontColor") : "";
+
+    <div class="@className four-col-module" @bgColor>
+        <div class="col-wrapper">
+            @if(content.HasValue("header"))
+            {
+                <div class="header" @fontColor>
+                    @Html.Raw(content.GetPropertyValue("header").ToString())
+                </div>   
+            }
+
+            <div class="col" @fontColor>
+                <div class="wrapper">
+                    @Html.Raw(content.GetPropertyValue("columnOneText").ToString())
+                </div>
+            </div>
+            <div class="col"> 
+                <div class="wrapper" @fontColor>
+                    @Html.Raw(content.GetPropertyValue("columnTwoText").ToString())
+                </div>
+            </div>
+            <div class="col">
+                <div class="wrapper" @fontColor>
+                    @Html.Raw(content.GetPropertyValue("columnThreeText").ToString())
+                </div>
+            </div>
+            <div class="col">
+                <div class="wrapper" @fontColor>
+                    @Html.Raw(content.GetPropertyValue("columnFourText").ToString())
+                </div>
+            </div>
+
+            @if(content.HasValue("footer"))
+            {
+                <div class="footer" @fontColor>
+                    @Html.Raw(content.GetPropertyValue("footer").ToString())
+                </div>   
+            }
+        </div>
+    </div>
+}

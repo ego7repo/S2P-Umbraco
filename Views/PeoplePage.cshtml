@@ -1,0 +1,95 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+    var content = Model.Content;
+    var bannerImg = content.HasValue("pageBanner") ? Umbraco.Media(content.GetPropertyValue<int>("pageBanner")).Url : null;
+    var bannerStyle = !String.IsNullOrEmpty(bannerImg) ? "style='background-image:url(" + bannerImg + ")'" : "";
+    var members = content.Children.Where(x => x.DocumentTypeAlias == "peopleItem");
+    var count = 0;
+    var closed = false;
+}
+
+<div class="single-page" id="people-page">
+    <div class="page-header" @Html.Raw(bannerStyle)>
+        <div class="content" data-aos="fade-right" data-aos-once="true" data-aos-easing="ease-in-out">
+            @content["pageHeader"]
+        </div>
+    </div>
+
+     @Html.Partial("Partials/Modules/BreadCrumbModule")
+  
+    <div class="team-grid">
+        <div class="container">
+            @content["pageLead"]
+
+            @foreach (var member in members)
+            {
+                if (count == 0)
+                {
+                    closed = false;
+                    @:<div class="row row-eq-height">
+                        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
+                            <div class="person-profile">
+                                <div class="avatar" style="background-image: url('@Umbraco.Media(member.GetPropertyValue<int>("image")).Url');"></div>
+                                <h5>@member.Name</h5>
+                                <span class="position">@member["title"], @member["location"]</span>
+                                <p>@member["description"]</p>
+                                <div class="profile-cta">
+                                    @if (member.HasValue("email"))
+                                    {
+                                        <a href = "mailto:@member["email"]" ><span class="mck-icon__email"></span>Email</a>
+                                    }
+                                    <a href=""><span class="mck-icon__download"></span> Download</a>
+                                </div>
+                            </div>
+                        </div>
+                    count++;
+                }
+                else if (count == 1)
+                {
+                    <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300" data-aos-once="true">
+                        <div class="person-profile">
+                            <div class="avatar" style="background-image: url('@Umbraco.Media(member.GetPropertyValue<int>("image")).Url');"></div>
+                            <h5>@member.Name</h5>
+                            <span class="position">@member["title"], @member["location"]</span>
+                            <p>@member["description"]</p>
+                            <div class="profile-cta">
+                                @if (member.HasValue("email"))
+                                {
+                                   <a href="mailto:@member["email"]"><span class="mck-icon__email"></span> Email</a>
+                                }
+                                <a href=""><span class="mck-icon__download"></span> Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    count++;
+                }
+                else if (count == 2)
+                {
+                    <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="500" data-aos-once="true">
+                        <div class="person-profile">
+                            <div class="avatar" style="background-image: url('@Umbraco.Media(member.GetPropertyValue<int>("image")).Url');"></div>
+                            <h5>@member.Name</h5>
+                            <span class="position">@member["title"], @member["location"]</span>
+                            <p>@member["description"]</p>
+                            <div class="profile-cta">
+                                @if (member.HasValue("email"))
+                                {
+                                    <a href="mailto:@member["email"]"><span class="mck-icon__email"></span> Email</a>
+                                }
+                                <a href=""><span class="mck-icon__download"></span> Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    @:</div>
+                    count = 0;
+                    closed = true;
+                }
+            }
+            @if(!closed)
+            {
+                @:</div>
+            }
+        </div>
+    </div>
+</div>
